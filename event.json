@@ -1,0 +1,40 @@
+{
+    "kafka": {
+        "brokers": [
+            "10.9.102.68",
+            "10.9.157.174",
+            "10.9.94.242",
+            "10.9.117.122"
+        ],
+        "topic": "dq",
+        "group": "dq_consumer",
+        "partitions": 16
+    },
+    "controller": {
+        "cmd_port": 34501,
+        "pub_port": 34502
+    },
+    "pipeline": {
+        "batch_count": 500,
+        "interval": 15,
+        "tables": ["act_log", "login_log", "reg_log", "var_log", "coin_log"],
+        "event_path": "/data/event/stream",
+        "logging_path": "/data/log/log_collector",
+        "fluent": {
+            "host": "localhost",
+            "port": 54224,
+            "tag": "dq_event"
+        }
+    },
+    "dw": {
+        "host": "10.9.153.241",
+        "port": 5432,
+        "database": "dq_test",
+        "user": "dq_test",
+        "password": "dq_test@20161021"
+    },
+    "redis":{
+        "host": "10.19.63.233",
+        "redis_matcher": {"act_log": 0, "coin_log": 1, "login_log": 2, "reg_log": 3, "var_log": 4}
+    }
+}

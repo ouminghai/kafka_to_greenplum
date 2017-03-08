@@ -1,0 +1,6 @@
+zmq
+simplejson
+kafka
+msgpack-python
+fluent-logger
+redis
