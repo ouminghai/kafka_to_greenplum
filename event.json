@@ -1,14 +1,11 @@
 {
     "kafka": {
         "brokers": [
-            "10.9.102.68",
-            "10.9.157.174",
-            "10.9.94.242",
-            "10.9.117.122"
+            "192.168.1.1"
         ],
-        "topic": "dq",
-        "group": "dq_consumer",
-        "partitions": 16
+        "topic": "topic_name",
+        "group": "group_name",
+        "partitions": 99
     },
     "controller": {
         "cmd_port": 34501,
@@ -17,24 +14,18 @@
     "pipeline": {
         "batch_count": 500,
         "interval": 15,
-        "tables": ["act_log", "login_log", "reg_log", "var_log", "coin_log"],
-        "event_path": "/data/event/stream",
-        "logging_path": "/data/log/log_collector",
-        "fluent": {
-            "host": "localhost",
-            "port": 54224,
-            "tag": "dq_event"
-        }
+        "tables": ["table_name1", "table_name2", "table_name3", "table_name4", "table_name5"],
+        "event_path": "event_path",
     },
     "dw": {
-        "host": "10.9.153.241",
+        "host": "192.168.1.1",
         "port": 5432,
-        "database": "dq_test",
-        "user": "dq_test",
-        "password": "dq_test@20161021"
+        "database": "database",
+        "user": "user",
+        "password": "password"
     },
     "redis":{
-        "host": "10.19.63.233",
-        "redis_matcher": {"act_log": 0, "coin_log": 1, "login_log": 2, "reg_log": 3, "var_log": 4}
+        "host": "192.168.1.1",
+        "redis_matcher": {"table_name1": 0, "table_name2": 1, "table_name3": 2, "table_name4": 3, "table_name5": 4}
     }
 }
